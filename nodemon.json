@@ -1,0 +1,9 @@
+{
+    "execMap": {
+      "watch": ["src"],
+      "ext": "js,json",
+      "ignore": ["node_modules"],
+      "js": "node -r sucrase/register src/server.js"
+    }
+}
+

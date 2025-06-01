@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  api:
+    build: .
+    container_name: controle-epi-api
+    ports:
+      - "3001:3001"
+    volumes:
+      - .:/app
+      # - /app/node_modules
+    environment:
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_NAME=controleepi
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:16
+    container_name: controle-epi-postgres
+    restart: always
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=controleepi
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

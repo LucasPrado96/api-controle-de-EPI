@@ -1,0 +1,32 @@
+{
+  "name": "controle-epi",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon --legacy-watch src/server.js",
+    "start": "node src/server.js",
+    "migrate": "docker exec -it controle-epi-api yarn sequelize db:migrate"
+  },
+  "keywords": [],
+  "author": "Lucas Prado",
+  "license": "ISC",
+  "description": "Controle Epi",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.14.1",
+    "pg-hstore": "^2.3.4",
+    "prop-types": "^15.8.1",
+    "sequelize": "^6.37.7",
+    "uuid": "^11.1.0",
+    "yarn": "^1.22.22",
+    "yup": "^1.6.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "sequelize-cli": "^6.6.2",
+    "sucrase": "^3.35.0"
+  }
+}

@@ -32,7 +32,7 @@ class FichaEpiControlle {
               {
                 model: Epi,
                 as: "epi",
-                attributes: ["id", "name", "code"],
+                attributes: ["id", "name", "code", "ca"],
               },
             ],
           },

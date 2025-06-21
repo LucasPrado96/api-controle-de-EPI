@@ -21,6 +21,7 @@ routes.use(authToken)
 
 routes.post('/epi', EpiController.store);
 routes.patch('/epi/add-estoque', EpiController.addstock);
+routes.patch('/epi/:id', EpiController.update);
 routes.get('/epi', EpiController.index)
 routes.delete('/epi/:id', EpiController.delete);
 

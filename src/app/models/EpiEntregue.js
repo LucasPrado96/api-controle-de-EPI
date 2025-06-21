@@ -6,12 +6,16 @@ class EpiEntregue extends Model{
             {
             ficha_id: DataTypes.INTEGER,
             epi_id: DataTypes.INTEGER,
+            nome_epi: DataTypes.STRING,
             quantidade: DataTypes.INTEGER,
-            data_entrega: DataTypes.DATE
+            ca: DataTypes.STRING,
+            data_entrega: DataTypes.DATE,
+            
         }, {
             sequelize,
             tableName: 'episentregue'
-        });
+            }
+    );
  }
 
  static associate(models){

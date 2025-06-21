@@ -25,7 +25,7 @@ module.exports = {
       defaultValue: 0
     },
     ca:{
-      type: Sequelize.DATE,
+      type: Sequelize.STRING,
       allowNull: true,
     },
     created_at: {

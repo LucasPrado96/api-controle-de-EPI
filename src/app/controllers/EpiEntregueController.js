@@ -8,8 +8,10 @@ class EpiEntregueController {
     const schema = Yup.object({
       funcionario_id: Yup.number().required(),
       epi_id: Yup.string().required(),
-      nome: Yup.string().required(),
+      nome_epi: Yup.string().required(),
+      ca: Yup.string().nullable(),
       quantidade: Yup.number().required(),
+     
     });
 
     try {
@@ -18,7 +20,7 @@ class EpiEntregueController {
       return response.status(400).json({ Error: err.errors });
     }
 
-    const { funcionario_id, epi_id, nome, quantidade } = request.body;
+    const { funcionario_id, epi_id, nome_epi, quantidade, ca } = request.body;
 
     try {
       const ficha = await FichaEpi.findOne({ where: { funcionario_id } });
@@ -39,10 +41,12 @@ class EpiEntregueController {
 
       const entrega = await EpiEntregue.create({
         ficha_id: ficha.id,
-        epi_id,
-        nome,
+        epi_id: epi.id,
+        nome_epi: epi.name,
+        ca: epi.ca,
         quantidade,
         data_entregue: new Date(),
+        
       });
 
       epi.quantity -= quantidade;

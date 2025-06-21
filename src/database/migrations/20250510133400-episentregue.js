@@ -22,13 +22,21 @@ module.exports = {
       },
       epi_id:{
         type: Sequelize.INTEGER,
-        allowNull:false,
+        allowNull:true,
         references: {
           model: 'epis',
           key: 'id'
         },
         onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        onDelete: 'SET NULL'
+      },
+      nome_epi:{
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      ca:{
+        type: Sequelize.STRING,
+        allowNull: true
       },
       quantidade: {
         type: Sequelize.INTEGER,
